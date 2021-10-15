@@ -1,6 +1,21 @@
 <html>
   <body>
     HELLO MY NAME IS DEXTER
-  
+  setInterval(function() {
+    const questionElement = document.querySelector(".current-game-question")
+    
+    if (questionElement != null) {
+        const question = questionElement.innerText.split(" ")
+        const answer = question[1] == "×" ? question[0] * question[2] : question[0] / question[2]
+        const ansMsg = String(answer).split("")
+    
+        for (let i = 0; i < ansMsg.length; ++i) {
+            document.querySelector(`div[aria-label="${ansMsg[i]}"]`).click()
+        }
+    
+        document.querySelector('.key-ent').click()
+    }
+    
+}, 250)
   </body>
 </html>
